@@ -224,7 +224,7 @@
         </tr>
 
         <tr>
-          <td><?php print_string('whichmodulestosearch?', 'search') ?>:</td>
+          <td><?php print_string('whichmodulestosearch', 'search') ?>:</td>
           <td>
             <select name="module">
     <?php
