@@ -2808,23 +2808,6 @@ function convert_tabrows_to_tree($tabrows, $selected, $inactive, $activated) {
 }
 
 /**
- * Returns the Moodle Docs URL in the users language
- *
- * @global object
- * @param string $path the end of the URL.
- * @return string The MoodleDocs URL in the user's language. for example {@link http://docs.moodle.org/en/ http://docs.moodle.org/en/$path}
- */
-function get_docs_url($path) {
-    global $CFG;
-    if (!empty($CFG->docroot)) {
-        return $CFG->docroot . '/' . current_language() . '/' . $path;
-    } else {
-        return 'http://docs.moodle.org/en/'.$path;
-    }
-}
-
-
-/**
  * Standard Debugging Function
  *
  * Returns true if the current site debugging settings are equal or above specified level.
