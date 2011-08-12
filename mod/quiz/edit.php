@@ -142,7 +142,6 @@ if ($quiz_reordertool > -1) {
 $quizhasattempts = quiz_has_attempts($quiz->id);
 
 $PAGE->set_url($thispageurl);
-$PAGE->set_pagelayout('admin');
 
 $pagetitle = get_string('editingquiz', 'quiz');
 if ($quiz_reordertool) {
@@ -427,8 +426,7 @@ echo '<div id="module" class="module">';
 echo '<div class="bd">';
 $questionbank->display('editq',
         $pagevars['qpage'],
-        $pagevars['qperpage'], $pagevars['qsortorder'],
-        $pagevars['qsortorderdecoded'],
+        $pagevars['qperpage'],
         $pagevars['cat'], $pagevars['recurse'], $pagevars['showhidden'],
         $pagevars['showquestiontext']);
 echo '</div>';
