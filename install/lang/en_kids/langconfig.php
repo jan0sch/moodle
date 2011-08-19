@@ -28,7 +28,5 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['language'] = 'Reo';
-$string['next'] = 'Panuku';
-$string['previous'] = 'Tōmua';
-$string['reload'] = 'Whakahokia atu';
+$string['parentlanguage'] = 'en';
+$string['thislanguage'] = 'English - Kids';
