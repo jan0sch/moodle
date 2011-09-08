@@ -388,6 +388,8 @@ function quiz_print_question_list($quiz, $pageurl, $allowdelete, $reordertool,
 
     $a = '<input name="moveselectedonpagetop" type="text" size="2" ' .
         $pagingdisabled . ' />';
+    $b = '<input name="moveselectedonpagebottom" type="text" size="2" ' .
+        $pagingdisabled . ' />';
 
     $reordercontrols2top = '<div class="moveselectedonpage">' .
         get_string('moveselectedonpage', 'quiz', $a) .
@@ -398,7 +400,7 @@ function quiz_print_question_list($quiz, $pageurl, $allowdelete, $reordertool,
     $reordercontrols2bottom = '<div class="moveselectedonpage">' .
         '<input type="submit" name="savechanges" value="' .
         $strreorderquestions . '" /><br />' .
-        get_string('moveselectedonpage', 'quiz', $a) .
+        get_string('moveselectedonpage', 'quiz', $b) .
         '<input type="submit" name="savechanges" value="' .
         $strmove . '"  ' . $pagingdisabled . ' /> ' . '</div>';
 
@@ -1118,13 +1120,17 @@ class quiz_question_bank_view extends question_bank_view {
         echo '</span></div></div>';
     }
 
-    protected function display_options($recurse = 1, $showhidden = false, $showquestiontext = false) {
+    protected function display_options($recurse, $showhidden, $showquestiontext) {
         echo '<form method="get" action="edit.php" id="displayoptions">';
         echo "<fieldset class='invisiblefieldset'>";
-        echo html_writer::input_hidden_params($this->baseurl, array('recurse', 'showhidden', 'showquestiontext'));
-        $this->display_category_form_checkbox('recurse', get_string('recurse', 'quiz'));
-        $this->display_category_form_checkbox('showhidden', get_string('showhidden', 'quiz'));
-        echo '<noscript><div class="centerpara"><input type="submit" value="'. get_string('go')  . '" />';
+        echo html_writer::input_hidden_params($this->baseurl,
+                array('recurse', 'showhidden', 'qbshowtext'));
+        $this->display_category_form_checkbox('recurse', $recurse,
+                get_string('recurse', 'quiz'));
+        $this->display_category_form_checkbox('showhidden', $showhidden,
+                get_string('showhidden', 'quiz'));
+        echo '<noscript><div class="centerpara"><input type="submit" value="' .
+                get_string('go') . '" />';
         echo '</div></noscript></fieldset></form>';
     }
 }
