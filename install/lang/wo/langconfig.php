@@ -28,7 +28,4 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['clianswerno'] = 'ei';
-$string['cliansweryes'] = 'jah';
-$string['environmentrequireinstall'] = 'on nõutud, et oleks installeeritud ja võimaldatud';
-$string['environmentrequireversion'] = 'versioon {$a->needed} on nõutud, Sinul on jooksmas versioon {$a->current}';
+$string['thislanguage'] = 'Wolof';
