@@ -1741,15 +1741,20 @@ class restore_course_completion_structure_step extends restore_structure_step {
 
         $data->course = $this->get_courseid();
 
-        $params = array(
-            'course' => $data->course,
-            'criteriatype' => $data->criteriatype,
-            'method' => $data->method,
-            'value' => $data->value,
-        );
-        $DB->insert_record('course_completion_aggr_methd', $params);
+        // Only create the course_completion_aggr_methd records if
+        // the target course has not them defined. MDL-28180
+        if (!$DB->record_exists('course_completion_aggr_methd', array(
+                    'course' => $data->course,
+                    'criteriatype' => $data->criteriatype))) {
+            $params = array(
+                'course' => $data->course,
+                'criteriatype' => $data->criteriatype,
+                'method' => $data->method,
+                'value' => $data->value,
+            );
+            $DB->insert_record('course_completion_aggr_methd', $params);
+        }
     }
-
 }
 
 
@@ -2271,7 +2276,20 @@ class restore_userscompletion_structure_step extends restore_structure_step {
         $data->userid = $this->get_mappingid('user', $data->userid);
         $data->timemodified = $this->apply_date_offset($data->timemodified);
 
-        $DB->insert_record('course_modules_completion', $data);
+        // Check we didn't already insert one for this cmid and userid
+        $existing = $DB->get_record('course_modules_completion', array(
+                'coursemoduleid' => $data->coursemoduleid,
+                'userid' => $data->userid), 'id, timemodified');
+        if ($existing) {
+             // Update it to these new values, but only if the time is newer
+            if ($existing->timemodified < $data->timemodified) {
+                $data->id = $existing->id;
+                $DB->update_record('course_modules_completion', $data);
+            }
+        } else {
+            // Normal entry where it doesn't exist already
+            $DB->insert_record('course_modules_completion', $data);
+        }
     }
 }
 
