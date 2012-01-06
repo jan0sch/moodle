@@ -885,7 +885,7 @@ class global_navigation extends navigation_node {
      * is an issue explaining why this is a REALLY UGLY HACK thats not
      * for you to use!
      *
-     * @param int $userid userid of profile page that parent wants to navigate around. 
+     * @param int $userid userid of profile page that parent wants to navigate around.
      */
     public function set_userid_for_parent_checks($userid) {
         $this->useridtouseforparentchecks = $userid;
@@ -1134,6 +1134,16 @@ class global_navigation extends navigation_node {
                         $sections = $this->load_course_sections($course, $coursenode);
                     }
                     break;
+            }
+        } else {
+            // We need to check if the user is viewing a front page module.
+            // If so then there is potentially more content to load yet for that
+            // module.
+            if ($this->page->context->contextlevel == CONTEXT_MODULE) {
+                $activitynode = $this->rootnodes['site']->get($this->page->cm->id, navigation_node::TYPE_ACTIVITY);
+                if ($activitynode) {
+                    $this->load_activity($this->page->cm, $this->page->course, $activitynode);
+                }
             }
         }
 
@@ -1820,8 +1830,12 @@ class global_navigation extends navigation_node {
 
             if (count($options) > 0) {
                 $blogs = $usernode->add(get_string('blogs', 'blog'), null, navigation_node::TYPE_CONTAINER);
-                foreach ($options as $option) {
-                    $blogs->add($option['string'], $option['link']);
+                foreach ($options as $type => $option) {
+                    if ($type == "rss") {
+                        $blogs->add($option['string'], $option['link'], settings_navigation::TYPE_SETTING, null, null, new pix_icon('i/rss', ''));
+                    } else {
+                        $blogs->add($option['string'], $option['link']);
+                    }
                 }
             }
         }
