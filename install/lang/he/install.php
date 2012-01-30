@@ -41,6 +41,7 @@ $string['databasehost'] = 'מסד הנתונים המארח (host)';
 $string['databasename'] = 'שם מסד הנתונים';
 $string['databasetypehead'] = 'בחר התקן מסד הנתונים';
 $string['dataroot'] = 'ספריית הנתונים';
+$string['datarootpermission'] = 'הרשאות תיקיות bתונים (data)';
 $string['dbprefix'] = 'Tables prefix';
 $string['dirroot'] = 'ספריית ה-Moodle';
 $string['environmenthead'] = 'בודק את הסביבה שלך...';
@@ -88,8 +89,7 @@ $string['phpversionhelp'] = '<p>גירסת PHP חייבת להיות לפחות 
 (במקרים של גרסת 5.0.x תוכל גם לרדת בגירסה ל- 4.4.x)
 </p>';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';
-$string['welcomep20'] = 'הינך רואה את עמוד זה מפני שהתקנת והפעלת בהלכה את <strong> $a-packname {$a->packversion} 
-</strong>
+$string['welcomep20'] = 'הינך רואה את עמוד זה מפני שהתקנת והפעלת בהלכה את <strong>{$a->packname} {$a->packversion}</strong>
 חבילה במחשבך. ברכותינו!';
 $string['welcomep30'] = 'גירסת <strong>{$a->installername}</strong> כוללת את היישומים ליצור סביבה אשר בה <strong> Moodle </strong>
 יפעל דהיינו:';
