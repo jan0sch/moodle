@@ -30,15 +30,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['clianswerno'] = 'n';
-$string['cliansweryes'] = 'y';
-$string['cliincorrectvalueerror'] = 'Fehler: Falscher Wert "{$a->value}" für "{$a->option}"';
-$string['cliincorrectvalueretry'] = 'Falscher Wert - bitte nochmal';
-$string['clitypevalue'] = 'Wert eingeben';
-$string['clitypevaluedefault'] = 'Wert eingeben oder Standardwert benutzen ({$a})';
-$string['cliunknowoption'] = 'Nicht erkannte Optionen: 
-  {$a}
-Hilfe wird über die Option -help angezeigt.';
-$string['cliyesnoprompt'] = 'y (yes=ja) oder n (no=nein) eingeben';
-$string['environmentrequireinstall'] = 'muss installiert und aktiviert sein';
-$string['environmentrequireversion'] = 'Version {$a->needed} ist erforderlich - aktuell ist {$a->current} installiert.';
+$string['clianswerno'] = 'No';
+$string['cliansweryes'] = 'Sí';
+$string['cliincorrectvalueerror'] = 'Error, valor incorrecte "{$a->value}" per a "{$a->option}"';
+$string['cliincorrectvalueretry'] = 'Valor incorrecte, per favor, torneu-ho a provar.';
+$string['clitypevalue'] = 'Valor de tipus';
+$string['clitypevaluedefault'] = 'valor de tipus, premeu Intro per fer servir un valor per defecte ({$a})';
+$string['cliunknowoption'] = 'Opcions invàlides:
+ {$a}
+L\'opció --help vos orientarà.';
+$string['cliyesnoprompt'] = 'Escriu y (significa Sí) o n (significa No)';
+$string['environmentrequireinstall'] = 'es requereix instal·lar/habilitar';
+$string['environmentrequireversion'] = 'esteu executant la versió {$a->current} i es requereix la {$a->needed}';
