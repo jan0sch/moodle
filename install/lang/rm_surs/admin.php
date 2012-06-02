@@ -30,7 +30,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['language'] = 'Мова інтерфейсу';
-$string['next'] = 'Далі';
-$string['previous'] = 'Назад';
-$string['reload'] = 'Оновити';
+$string['clianswerno'] = 'na';
+$string['cliansweryes'] = 'gie';
+$string['cliincorrectvalueretry'] = 'Quei ei buca correct, emprova aunc inagada';
+$string['clitypevalue'] = 'Tipar valur (value)';
+$string['cliyesnoprompt'] = 'Tippar gie ni na';

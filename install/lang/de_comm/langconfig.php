@@ -30,7 +30,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['language'] = 'Мова інтерфейсу';
-$string['next'] = 'Далі';
-$string['previous'] = 'Назад';
-$string['reload'] = 'Оновити';
+$string['parentlanguage'] = 'de_du';
+$string['thisdirection'] = 'ltr';
+$string['thislanguage'] = 'Deutsch community';
